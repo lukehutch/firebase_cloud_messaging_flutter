@@ -102,6 +102,7 @@ class FirebaseCloudMessagingServer {
       successful: successful,
       statusCode: response.statusCode,
       errorPhrase: response.reasonPhrase,
+      retryAfter: DateTime.tryParse(response.headers['Retry-After'] ?? ''),
       messageSent: successful
           ? FirebaseMessage.fromJson(json.decode(response.body))
           : FirebaseMessage(),
@@ -121,12 +122,14 @@ class ServerResult {
   final int statusCode;
   final FirebaseMessage messageSent;
   final String? errorPhrase;
+  final DateTime? retryAfter;
 
   const ServerResult({
     required this.successful,
     required this.statusCode,
     required this.messageSent,
     this.errorPhrase,
+    this.retryAfter,
   });
 
   @override
