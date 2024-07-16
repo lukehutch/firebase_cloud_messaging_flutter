@@ -44,6 +44,12 @@ class FirebaseMessage {
   ///Union field target. Required. Input only. Target to send a message to. target can be only one of token, topic or condition.
   final String? condition;
 
+  /// Whether to set the `mutable-content: 1` APN option for iOS push
+  /// notifications. Required for rich image notifications on iOS,
+  /// in conjunction with a custom notification handler.
+  @JsonKey(name: "mutable_content")
+  final bool? mutableContent;
+
   factory FirebaseMessage.fromJson(Map<String, dynamic> json) =>
       _$FirebaseMessageFromJson(json);
 
@@ -60,6 +66,7 @@ class FirebaseMessage {
     this.token,
     this.topic,
     this.condition,
+    this.mutableContent,
   });
 
   @override
