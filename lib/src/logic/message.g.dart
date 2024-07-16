@@ -34,7 +34,6 @@ FirebaseMessage _$FirebaseMessageFromJson(Map<String, dynamic> json) =>
       token: json['token'] as String?,
       topic: json['topic'] as String?,
       condition: json['condition'] as String?,
-      mutableContent: json['mutable_content'] as bool?,
     );
 
 Map<String, dynamic> _$FirebaseMessageToJson(FirebaseMessage instance) =>
@@ -49,5 +48,4 @@ Map<String, dynamic> _$FirebaseMessageToJson(FirebaseMessage instance) =>
       'token': instance.token,
       'topic': instance.topic,
       'condition': instance.condition,
-      'mutable_content': instance.mutableContent,
     };

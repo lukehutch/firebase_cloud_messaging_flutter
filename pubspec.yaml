@@ -17,6 +17,8 @@ dependencies:
   json_serializable: ^6.8.0
 
 dev_dependencies:
+  # To generate JSON interface:
+  # flutter run build_runner build
   build_runner: ^2.4.11
   lints: ^4.0.0
   test: ^1.25.8
