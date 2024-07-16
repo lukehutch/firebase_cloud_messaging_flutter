@@ -39,7 +39,7 @@ FirebaseAndroidNotification _$FirebaseAndroidNotificationFromJson(
       vibrateTimings: (json['vibrate_timings'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      notificationCount: json['notification_count'] as int?,
+      notificationCount: (json['notification_count'] as num?)?.toInt(),
       lightSettings: json['light_settings'] == null
           ? null
           : LightSettings.fromJson(
@@ -110,10 +110,10 @@ Map<String, dynamic> _$LightSettingsToJson(LightSettings instance) =>
     };
 
 FCMColor _$FCMColorFromJson(Map<String, dynamic> json) => FCMColor(
-      red: json['red'] as int?,
-      green: json['green'] as int?,
-      blue: json['blue'] as int?,
-      alpha: json['alpha'] as int?,
+      red: (json['red'] as num?)?.toInt(),
+      green: (json['green'] as num?)?.toInt(),
+      blue: (json['blue'] as num?)?.toInt(),
+      alpha: (json['alpha'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$FCMColorToJson(FCMColor instance) => <String, dynamic>{
